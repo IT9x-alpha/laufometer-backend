@@ -4,7 +4,7 @@ models:
     name: string:255
     email: string:255
     password: string:255
-    timetamps
+    timestamps
 
   Group:
     id
@@ -25,3 +25,5 @@ controllers:
     resource: api
   Activity:
     resource: api
+
+seeders: User, Group, Activity

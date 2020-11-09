@@ -4,16 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\Models\Activity;
+use App\Models\Group;
 
-class UserFactory extends Factory
+class ActivityFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Activity::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +24,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'group_id' => Group::factory(),
             'name' => $this->faker->name,
-            'email' => $this->faker->safeEmail,
-            'password' => $this->faker->password,
+            'activity_type' => $this->faker->word,
+            'kilometers' => $this->faker->randomFloat(2, 0, 99999999.99),
+            'published_at' => $this->faker->dateTime(),
         ];
     }
 }
