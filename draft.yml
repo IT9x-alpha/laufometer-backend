@@ -13,7 +13,7 @@ models:
 
   Activity:
     id
-    group_id: id
+    group_id: id foreign:groups.id
     name: string:255
     activity_type: string:60
     kilometers: decimal:10,2
