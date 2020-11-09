@@ -50,7 +50,7 @@ class ActivityControllerTest extends TestCase
         $group = Group::factory()->create();
         $name = $this->faker->name;
         $activity_type = $this->faker->word;
-        $kilometers = $this->faker->randomFloat(/** decimal_attributes **/);
+        $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
         $response = $this->post(route('activity.store'), [
@@ -111,7 +111,7 @@ class ActivityControllerTest extends TestCase
         $group = Group::factory()->create();
         $name = $this->faker->name;
         $activity_type = $this->faker->word;
-        $kilometers = $this->faker->randomFloat(/** decimal_attributes **/);
+        $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
         $response = $this->put(route('activity.update', $activity), [
