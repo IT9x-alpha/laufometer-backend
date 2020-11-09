@@ -1,0 +1,27 @@
+models:
+  User:
+    id
+    name: string:255
+    email: string:255
+    password: string:255
+    timetamps
+
+  Group:
+    id
+    name: string:255
+    timestamps
+
+  Activity:
+    id
+    group_id: id
+    name: string:255
+    activity_type: string:60
+    kilometers: decimal:10,2
+    published_at: timestamp
+    timestamps
+
+controllers:
+  Group:
+    resource: api
+  Activity:
+    resource: api
