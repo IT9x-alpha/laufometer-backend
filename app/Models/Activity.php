@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\ActivityTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,6 +42,7 @@ class Activity extends Model
         'id' => 'integer',
         'group_id' => 'integer',
         'kilometers' => 'decimal:2',
+        'activity_type' => ActivityTypeEnum::class,
     ];
 
     /**
