@@ -49,7 +49,7 @@ class ActivityControllerTest extends TestCase
     {
         $group = Group::factory()->create();
         $name = $this->faker->name;
-        $activity_type = $this->faker->word;
+        $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
@@ -110,7 +110,7 @@ class ActivityControllerTest extends TestCase
         $activity = Activity::factory()->create();
         $group = Group::factory()->create();
         $name = $this->faker->name;
-        $activity_type = $this->faker->word;
+        $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
