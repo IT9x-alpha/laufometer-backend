@@ -20,7 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
             $table->string('activity_type', 60);
             $table->decimal('kilometers', 10, 2);
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
 
