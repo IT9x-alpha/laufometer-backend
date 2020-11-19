@@ -41,7 +41,6 @@ class ActivityCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('group_id');
-        CRUD::column('name');
         CRUD::column('kilometers');
         CRUD::column('created_at');
         CRUD::column('updated_at');
