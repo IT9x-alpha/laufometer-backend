@@ -48,14 +48,12 @@ class ActivityControllerTest extends TestCase
     public function store_saves()
     {
         $group = Group::factory()->create();
-        $name = $this->faker->name;
         $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
         $response = $this->post(route('activity.store'), [
             'group_id' => $group->id,
-            'name' => $name,
             'activity_type' => $activity_type,
             'kilometers' => $kilometers,
             'published_at' => $published_at,
@@ -63,7 +61,6 @@ class ActivityControllerTest extends TestCase
 
         $activities = Activity::query()
             ->where('group_id', $group->id)
-            ->where('name', $name)
             ->where('activity_type', $activity_type)
             ->where('kilometers', $kilometers)
             ->where('published_at', $published_at)
@@ -109,14 +106,12 @@ class ActivityControllerTest extends TestCase
     {
         $activity = Activity::factory()->create();
         $group = Group::factory()->create();
-        $name = $this->faker->name;
         $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
         $published_at = $this->faker->dateTime();
 
         $response = $this->put(route('activity.update', $activity), [
             'group_id' => $group->id,
-            'name' => $name,
             'activity_type' => $activity_type,
             'kilometers' => $kilometers,
             'published_at' => $published_at,
@@ -128,7 +123,6 @@ class ActivityControllerTest extends TestCase
         $response->assertJsonStructure([]);
 
         $this->assertEquals($group->id, $activity->group_id);
-        $this->assertEquals($name, $activity->name);
         $this->assertEquals($activity_type, $activity->activity_type);
         $this->assertEquals($kilometers, $activity->kilometers);
         $this->assertEquals($published_at, $activity->published_at);
