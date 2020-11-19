@@ -28,10 +28,8 @@ class Activity extends Model
      */
     protected $fillable = [
         'group_id',
-        'name',
         'activity_type',
         'kilometers',
-        'published_at',
     ];
 
     /**
