@@ -2,6 +2,9 @@
 
 namespace Tests\Feature\Http\Controllers;
 
+use App\Http\Controllers\ActivityController;
+use App\Http\Requests\ActivityStoreRequest;
+use App\Http\Requests\ActivityUpdateRequest;
 use App\Models\Activity;
 use App\Models\Group;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,7 +24,7 @@ class ActivityControllerTest extends TestCase
      */
     public function index_behaves_as_expected()
     {
-        $activities = Activity::factory()->count(3)->create();
+        Activity::factory()->count(3)->create();
 
         $response = $this->get(route('activity.index'));
 
@@ -36,9 +39,9 @@ class ActivityControllerTest extends TestCase
     public function store_uses_form_request_validation()
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\ActivityController::class,
+            ActivityController::class,
             'store',
-            \App\Http\Requests\ActivityStoreRequest::class
+            ActivityStoreRequest::class
         );
     }
 
@@ -66,7 +69,6 @@ class ActivityControllerTest extends TestCase
             ->where('published_at', $published_at)
             ->get();
         $this->assertCount(1, $activities);
-        $activity = $activities->first();
 
         $response->assertCreated();
         $response->assertJsonStructure([]);
@@ -93,9 +95,9 @@ class ActivityControllerTest extends TestCase
     public function update_uses_form_request_validation()
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\ActivityController::class,
+            ActivityController::class,
             'update',
-            \App\Http\Requests\ActivityUpdateRequest::class
+            ActivityUpdateRequest::class
         );
     }
 
