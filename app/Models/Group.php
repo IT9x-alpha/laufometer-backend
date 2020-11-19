@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Group extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     /**
