@@ -18,7 +18,6 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
-            $table->string('name', 255);
             $table->string('activity_type', 60);
             $table->decimal('kilometers', 10, 2);
             $table->timestamp('published_at');
