@@ -53,20 +53,17 @@ class ActivityControllerTest extends TestCase
         $group = Group::factory()->create();
         $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
-        $published_at = $this->faker->dateTime();
 
         $response = $this->post(route('activity.store'), [
             'group_id' => $group->id,
             'activity_type' => $activity_type,
             'kilometers' => $kilometers,
-            'published_at' => $published_at,
         ]);
 
         $activities = Activity::query()
             ->where('group_id', $group->id)
             ->where('activity_type', $activity_type)
             ->where('kilometers', $kilometers)
-            ->where('published_at', $published_at)
             ->get();
         $this->assertCount(1, $activities);
 
