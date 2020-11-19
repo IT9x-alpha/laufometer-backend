@@ -110,13 +110,11 @@ class ActivityControllerTest extends TestCase
         $group = Group::factory()->create();
         $activity_type = "walking";
         $kilometers = $this->faker->randomFloat(2);
-        $published_at = $this->faker->dateTime();
 
         $response = $this->put(route('activity.update', $activity), [
             'group_id' => $group->id,
             'activity_type' => $activity_type,
             'kilometers' => $kilometers,
-            'published_at' => $published_at,
         ]);
 
         $activity->refresh();
@@ -127,7 +125,6 @@ class ActivityControllerTest extends TestCase
         $this->assertEquals($group->id, $activity->group_id);
         $this->assertEquals($activity_type, $activity->activity_type);
         $this->assertEquals($kilometers, $activity->kilometers);
-        $this->assertEquals($published_at, $activity->published_at);
     }
 
 
