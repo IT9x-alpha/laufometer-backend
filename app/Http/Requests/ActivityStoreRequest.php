@@ -29,7 +29,6 @@ class ActivityStoreRequest extends FormRequest
             'group_id' => ['required', 'integer', 'exists:groups,id'],
             'activity_type' => ['required', new EnumRule(ActivityTypeEnum::class)],
             'kilometers' => ['required', 'numeric', 'between:-99999999.99,99999999.99'],
-            'published_at' => ['required'],
         ];
     }
 }
