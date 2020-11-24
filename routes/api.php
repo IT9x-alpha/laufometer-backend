@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('ranking', \App\Http\Controllers\RankingController::class);
 Route::apiResource('group', App\Http\Controllers\GroupController::class);
 Route::apiResource('activity', App\Http\Controllers\ActivityController::class);
